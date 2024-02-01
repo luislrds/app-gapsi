@@ -1,0 +1,50 @@
+<div class="container p-4">
+    <ng-container *ngIf="loading; else suppliersList">
+        <div class="d-flex justify-content-center">
+            <mat-spinner></mat-spinner>
+        </div>
+    </ng-container>
+
+    <ng-template #suppliersList>
+        <p class="h2">Lista de proveedores</p>
+        <div class="d-flex flex-column">
+            <div class="text-right">
+                <button mat-raised-button color="primary" mat-button (click)="openDialog()">Agregar nuevo</button>
+            </div>
+            <div>
+                <table mat-table [dataSource]="dataSource">
+                    <ng-container matColumnDef="name">
+                        <th mat-header-cell *matHeaderCellDef> Nombre </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.name}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="business_name">
+                        <th mat-header-cell *matHeaderCellDef> Razón social </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.business_name}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="address">
+                        <th mat-header-cell *matHeaderCellDef> Dirección </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.address}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="action">
+                        <th mat-header-cell *matHeaderCellDef> Acciones </th>
+                        <td mat-cell *matCellDef="let element">
+                            <button mat-icon-button mat-button (click)="confirmAction(element?.id)"><i
+                                    class="fas fa-trash"></i>
+                            </button>
+                        </td>
+                    </ng-container>
+
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                </table>
+                <mat-paginator [length]="length" [pageIndex]="pageIndex" [pageSize]="limit" [pageSizeOptions]="[5, 10, 25, 100]"
+                    (page)="onPageFired($event)"
+                    aria-label="Select page">
+                </mat-paginator>
+            </div>
+        </div>
+    </ng-template>
+</div>

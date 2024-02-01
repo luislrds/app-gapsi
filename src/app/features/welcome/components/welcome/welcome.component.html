@@ -1,0 +1,23 @@
+<div class="container-fluid p-0 m-0" (scroll)="onScroll()">
+    <mat-toolbar>
+        <span>e-Commerce Gapsi</span>
+        <span class="spacer"></span>
+        <button mat-icon-button>
+            <i class="fas fa-ellipsis-v"></i>
+        </button>
+    </mat-toolbar>
+    <div class="vertical-center justify-content-center" >
+        <div class="d-flex flex-column">
+            <app-candidate></app-candidate>
+            <div class="text-center">
+                <button mat-raised-button color="primary" mat-button>Continuar</button>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <app-version></app-version>
+    </div>
+
+    <div class="container section" #supplierListContainer>
+    </div>
+</div>

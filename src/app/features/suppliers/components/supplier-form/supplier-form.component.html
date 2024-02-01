@@ -1,0 +1,26 @@
+<div class="container p-3">
+    <form [formGroup]="form" autocomplete="off">
+        <div class="d-flex flex-column">
+            <div class="h5 pb-3">Agregar nuevo proveedor</div>
+            <mat-form-field appearance="outline" class="w-100 p-1" color="accent">
+                <mat-label>Nombre</mat-label>
+                <input matInput formControlName="name" autocomplete="off" />
+                <mat-error>*Campo requerido</mat-error>
+            </mat-form-field>
+            <mat-form-field appearance="outline" class="w-100 p-1" color="accent">
+                <mat-label>Razon social</mat-label>
+                <input matInput formControlName="business_name" autocomplete="off" />
+                <mat-error>*Campo requerido</mat-error>
+            </mat-form-field>
+            <mat-form-field appearance="outline" class="w-100 p-1" color="accent">
+                <mat-label>Dirección</mat-label>
+                <input matInput formControlName="address" autocomplete="off" />
+                <mat-error>*Campo requerido</mat-error>
+            </mat-form-field>
+            <div class="d-flex flex-row justify-content-around p-1">
+                <button mat-raised-button mat-button (click)="cancel()">Cancelar</button>
+                <button mat-raised-button color="primary" mat-button (click)="save()">Guardar</button>
+            </div>
+        </div>
+    </form>
+</div>
